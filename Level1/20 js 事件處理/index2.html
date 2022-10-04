@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="" utf-8"</meta>
+    <title>Javascript</title>
+    <script type="" text"javascript">
+        function init() {
+            var btn=document.getElementById("btn");
+            /*
+            btn.onclick=function(){
+                alert("Clicked");
+            };
+            */
+            var handler=function(e) {  //動態的註冊(新):準備一個事件處理器
+                alert("Clicked");
+            };
+            btn.addEventListener("click",handler);
+           });
+        }
+    </script>
+
+</head>
+
+<body onload="init();">
+    <button id="btn">Clikc</button>
+</body>
+
+</html>

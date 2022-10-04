@@ -1,0 +1,27 @@
+nav{
+    display:flex;
+}
+nav>.logo{
+    /*沒有彈性，固定長度*/
+    flex:none;width: 100px;
+    background-color: #ffcccc;
+}
+nav>.menu{
+    /*有彈性，空間張滿*/
+    flex:auto;
+    background-color: #ccccff;
+}
+nav>.user{
+    flex:none;width: 100px;
+    background-color: #ccffcc;
+}
+main{
+    display: flex;
+    justify-content: center;
+    background-color: #cccccc;
+}
+main>.item{
+    flex:none;
+    width: 300px;margin: 10px;
+    background-color: #ffcccc;
+}

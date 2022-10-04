@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="" utf-8"</meta>
+    <title>Javascript</title>
+    <script type="" text"javascript">
+        //綜合範例
+        var player=new Object();
+        player.name="John";
+        player.hp=100;
+        player.fight=function(){
+            this.hp=this.hp-2;
+        };
+        player.rest=function(){
+            this.hp++;
+        };
+        player.report=function(){
+            alert(this.name+":"+this.hp);
+        };
+        player.fight();
+        player.rest();
+        player.report();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
