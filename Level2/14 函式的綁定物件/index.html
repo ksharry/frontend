@@ -1,0 +1,50 @@
+<!-- 
+this
+-->
+<html>
+<head>
+    <meta charset=""utf-8"</meta>
+    <title>HTML</title>
+    <script type="text/javascript">
+        // 情況一:獨立的函式
+        // function test(){
+        //     console.log(this);  //this就是Window物件
+        //     console.log(this.innerWidth);
+        // }
+        // test();
+
+        // 情況二:物件的方法
+        // let obj={
+        //     x:3,
+        //     test:function(){
+        //         console.log(this);  // this 就是方法所屬物件本身
+        //         console.log(this.x); // 印出X
+        //     }
+        // }
+        // obj.test();
+
+        // 情況三:事件處理函式
+        // document.addEventListener("click", function(){
+        //     console.log(this); // this 就是觸發事件的物件
+        //     this.body.innerHTML="Clicked";
+        // });
+
+        // 情況四:建構函式
+        function Point(){
+            console.log(this); // this就是瀏覽器自動幫我們新建立好的空白物件
+            this.x=3;
+            this.y=4;
+        }
+        let p1=new Point();
+        console.log(p1);
+    </script>
+        
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
