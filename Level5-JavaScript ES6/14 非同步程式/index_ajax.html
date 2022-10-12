@@ -1,0 +1,33 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. 類別:設計圖
+    2. 物件:根據設計圖製造出來的實體，會用到class,constrator,new
+    3. 例如有馬克杯設計圖，可以設計多的馬克杯
+    9. 方法:用來描述物件可以做的事/與物件綁定的函式
+    10. 電動車繼承車子，會用到extends,super 
+    12. 原型鍊:每個物件都有對應的原型物件
+    13. 靜態方法:與類別綁定的方法
+    14. 程式中包含子程式時產生。
+    
+    -->
+<head>
+    <meta charset="" utf-8"</meta>
+    <title>Javascript</title>
+    <script type="" text"javascript">
+        //ajax是非同步的範例
+        let req=new XMLHttpRequest();
+        req.open("get", "data.txt");
+        req.onload=function(){
+            alert(this.responseText);
+        };
+        req.send(); //開始子程式
+        alert("立即被呼叫");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

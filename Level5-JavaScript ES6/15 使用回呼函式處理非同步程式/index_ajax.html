@@ -1,0 +1,42 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. 類別:設計圖
+    2. 物件:根據設計圖製造出來的實體，會用到class,constrator,new
+    3. 例如有馬克杯設計圖，可以設計多的馬克杯
+    9. 方法:用來描述物件可以做的事/與物件綁定的函式
+    10. 電動車繼承車子，會用到extends,super 
+    12. 原型鍊:每個物件都有對應的原型物件
+    13. 靜態方法:與類別綁定的方法
+    14. 程式中包含子程式時產生。
+    
+    -->
+<head>
+    <meta charset="" utf-8"</meta>
+    <title>Javascript</title>
+    <script type="" text"javascript">
+        //2. 準備AJax連線
+        function getData(callback){
+            let req=new XMLHttpRequest()
+            req.open("get", "https://training.pada-x.com/resources/javascript-es6-react/data.out");
+            req.onload=function() {
+                //5. 等待一段時間後，子程式完成連線，觸法主程式的load事件，取得資料
+                //6. 呼叫callback，即透過參數傳入的showData函式
+                callback(this.responseText);
+            }
+            req.send(); //3. 送出連線，建立子程式
+            //4. 主程式立即結束，回傳undefined
+        };
+
+        function showData(result){
+            alert(result);  //7. 可以從result.取得連線資料
+        }
+        getData(showData);  //1. 呼叫取資料用的函式，並傳參數
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

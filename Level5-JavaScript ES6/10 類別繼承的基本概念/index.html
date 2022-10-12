@@ -1,0 +1,39 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. 類別:設計圖
+    2. 物件:根據設計圖製造出來的實體，會用到class,constrator,new
+    3. 例如有馬克杯設計圖，可以設計多的馬克杯
+    9. 方法:用來描述物件可以做的事/與物件綁定的函式
+    10.電動車繼承車子，會用到extends,super 
+    -->
+<head>
+    <meta charset="" utf-8"</meta>
+    <title>Javascript</title>
+    <script type="" text"javascript">
+        class Car{
+            constructor(color){
+                this.color=color;
+                this.speed=0;
+            }
+            run(speed){
+                this.speed=speed;
+                console.log("Car "+this.color+" Running at "+this.speed+" KM/HR");
+            }
+            stop(speed){
+                this.speed=0;
+                console.log("Car "+this.color+" Stopped");
+            }
+        }
+
+        let car1=new Car("blue");
+        car1.run(50);
+        car1.stop();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

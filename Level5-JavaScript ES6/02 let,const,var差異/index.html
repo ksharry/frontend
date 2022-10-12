@@ -1,0 +1,45 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. 使用var宣告變數，變數的scope以函式區塊分界
+    2. 使用let宣告變數，變數的Scope以程式區塊(大括號)分界
+    3. 常數資料不能變動 
+    -->
+<head>
+    <meta charset="" utf-8"</meta>
+    <title>Javascript</title>
+    <script type="" text"javascript">
+        // 範例一
+        for (var i=0,i<3,i++){
+            console.log(i);
+        }
+        console.log(i);  //印出3
+
+        // 範例二
+        function test(){
+            for (var i=0,i<3,i++){
+            console.log(i);
+        }
+        console.log(i);  //錯誤，找不到變數i
+
+        // 範例三
+        for (let i=0,i<3,i++){
+            console.log(i);
+        }
+        console.log(i);  //錯誤，找不到變數i
+
+        // 範例四
+        function test(){
+            for (let i=0,i<3,i++){
+            console.log(i);
+        }
+        console.log(i);  //還是錯誤，找不到變數i
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
