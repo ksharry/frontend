@@ -1,0 +1,45 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. classname屬性
+    2. 透過行內樣式
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style type=""text/css">
+        .head{font-size:24px;font-weight:bold;}
+    </style>
+    <script type="text/babel">
+        // 設計組件類別
+        class MyHead extends React.Component{
+            render(){
+                // return React.createElement("H1", {className:"head"}, "Hello Component")
+                return <div className="head" style={{color:this.props.color}}><h1>Hello Component {this.props.level}</h1></div>;
+            }
+        }
+        class MyHeadList extends React.Component{
+            render(){
+                return <div>
+                    <MyHead level="1" color="red" />    
+                    <MyHead level="2" color="green"/>    
+                    <MyHead level="3" color="blue"/>    
+                </div>
+            }
+        }
+        window.addEventListener("load", ()=>{
+            // let myComponent=<React.createElement(MyHead, null,)>;
+            let elem=<MyHeadList/>;
+            // ReactDOM.render(myComponent, document.body);
+            ReactDOM.render(
+                elem, document.body
+            );
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

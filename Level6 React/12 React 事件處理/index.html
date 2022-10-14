@@ -1,0 +1,47 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. classname屬性
+    2. 透過行內樣式
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style type=""text/css">
+        .head-3{font-size:24px;font-weight:bold;}
+    </style>
+    <script type="text/babel">
+        class MyHead extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={color:"red"};
+            }
+            render(){
+                return <div className={"head-"+this.props.level}
+                    style={{color:this.state.color}}
+                    onClick={this.clickHandler.bind(this)}
+                    onMouseOver={this.mouseOverHandler.bind(this)}
+                    onMouseout={this.mouseOutHandler.bind(this)}> Hello Component </div>;
+            }
+            clickHandler(e){
+                this.setState({color:"blue"});
+            }
+            mouseOverHandler(e){
+                this.setState({color:"blue"})
+            }
+            mouseOutHandler(e){
+                this.setState({color:"red"});
+            }
+        }
+
+        window.addEventListener("load", ()=>{
+            ReactDOM.render(<MyHead level="3" />, document.body);
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

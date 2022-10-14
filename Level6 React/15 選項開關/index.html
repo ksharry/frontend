@@ -1,0 +1,56 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. 可以容易附註包裝好的元件
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style type="text/css">
+        .switch{
+            width:60px;height:30px;background-color: #eeeeee;border-radius: 15px;
+        }
+        .switch>.btn{
+            width:30px;height:30px;background-color: #444444;border-radius: 15px;
+        }
+        .switch-on{
+            background-color: #ddffdd;
+        }
+        .switch-on>.btn{
+            background-color: #448844;margin-left:30px;
+        }
+    </style>
+    <script type="text/babel">
+        class Switch extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={on:false};
+            }
+            render(){
+                let className="switch";
+                if(this.state.on){
+                    className+=" switch-on";
+                }
+                return <div onClick={this.update.bind(this)} className={className}>
+                        <div className="btn"></div>
+                    </div>;
+            }
+            update(){
+                this.setState((currentState)=>({on:!currentState.on}));
+            }
+        }
+        window.addEventListener("load", ()=>{
+            ReactDOM.render(<Switch/>, document.getElementById("switch-0"));
+            ReactDOM.render(<Switch/>, document.getElementById("switch-1"));
+        });
+    </script>
+</head>
+<body>
+    <div id="switch-0"></div>
+    <hr/>
+    <div id="switch-1"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+    <!-- 
+    ## 介紹
+    ..
+    6. 跟HTML一樣裡面可以放其他標籤。
+    8. 組件生命週期
+       + constructor();
+       + componentWillMount();
+       + render();
+       + componentDidMount();
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script>
+        // 設計組件類別
+        class MyHead extends React.Component{
+            render(){
+                return React.createElement("H"+this.props.level, null, "Hello Component");
+            }
+        }
+        class MyHeadList extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={maxLevel:props.start};
+            }
+            componentWillMount(){
+                window.setInterval(()=>{
+                    this.setState((currentState, currentProps)=>{
+                        if(currentState.maxLevel>currentProps.end){
+                            return currentState;
+                        }else{
+                            return{maxLevel:currentState.maxLevel+1};
+                        }
+                    });
+                }, 1000);
+            }
+            componentWillUnmount(){
+                window.clearInterval(this.intervalID);
+            }
+            render(){
+                let heads=[];
+                let head;
+                for(let i=1;i<this.state.maxLevel;i++){
+                    head=React.createElement(MyHead, {level:i});
+                    heads.push(head);
+                }
+                return React.createElement("DIV", null, heads);
+            }
+        }
+        window.addEventListener("load", ()=>{
+            //1. 建立自訂的React組件
+            let myComponent=React.createElement(MyHeadList, {start:3, end:5});
+            //2. 畫到容器
+            ReactDOM.render(myComponent, document.body);
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

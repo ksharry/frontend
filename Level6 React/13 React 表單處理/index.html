@@ -1,0 +1,64 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. classname屬性
+    2. 透過行內樣式
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // 設計組件類別
+        class MyForm extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={
+                    name:"",
+                    gender:"male",
+                    story:""
+                };
+            }
+            render(){
+                return <form onSubmit={this.handleSubmit.bind(this)}>
+                        Name <input type="text" value={this.state.name}
+                            onChange={this.handleNameChange.bind(this)} />
+                        <br />
+                        Gender <select value={this.state.gender} onChange={this.handleGenderChange.bind(this)}>
+                            <option value="male">男</option>
+                            <option value="female">女</option>
+                        </select>
+                        <br />
+                        story <textarea value={this.state.story} onChange={this.handleStoryChange.bind(this)} />
+                        <br />
+                        <input type="submit" value="Submit" />
+                    </form>
+            }
+            handleStoryChange(e){
+                this.setState({story:e.currentTarget.value});
+            }
+            handleGenderChange(e){
+                this.setState({gender:e.currentTarget.value});
+            }
+            handleNameChange(e){
+                this.setState({name:e.currentTarget.value});
+            }
+            handleSubmit(e){
+                e.preventDefault();
+                console.log("表單送出");
+                console.log("name:" +this.state.name);
+                console.log("gender:" +this.state.gender);
+                console.log("story:" +this.state.story);
+            }
+        }
+
+        window.addEventListener("load", ()=>{
+            ReactDOM.render(<MyForm/>, document.body);
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

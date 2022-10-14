@@ -1,0 +1,36 @@
+<html>
+    <!-- 
+    ## 介紹
+    1.
+       + 用來開發使用者介面的JS套件
+       + 以組件(Component)為核心
+       + 容易理解與除錯
+       + Facebook開發團隊提供資源
+       + 未來可延伸到手機應用開發
+    2. 使用React Element
+    3. 區分1.HTML DOM 2. React組件
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script>
+        // 設計組件類別
+        class MyHead extends React.Component{
+            render(){
+                console.log(this.props.level)
+                return React.createElement("H"+this.props.level, null, "Hello Component")
+            }
+        }
+        window.addEventListener("load", ()=>{
+            //1. 建立自訂的React組件
+            let myComponent=React.createElement(MyHead, {level:2});
+            //2. 畫到容器
+            ReactDOM.render(myComponent, document.body);
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

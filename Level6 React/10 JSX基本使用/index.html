@@ -1,0 +1,41 @@
+<html>
+    <!-- 
+    ## 介紹
+    1. JSX取代React.createElement方法
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // 設計組件類別
+        class MyHead extends React.Component{
+            render(){
+                // return React.createElement("H1", {className:"head"}, "Hello Component")
+                return <div className="head"><h1>Hello Component {this.props.level}</h1></div>;
+            }
+        }
+        class MyHeadList extends React.Component{
+            render(){
+                return <div>
+                    <MyHead level="1"/>    
+                    <MyHead level="2"/>    
+                    <MyHead level="3"/>    
+                </div>
+            }
+        }
+        window.addEventListener("load", ()=>{
+            // let myComponent=<React.createElement(MyHead, null,)>;
+            let elem=<MyHeadList/>;
+            // ReactDOM.render(myComponent, document.body);
+            ReactDOM.render(
+                elem, document.body
+            );
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

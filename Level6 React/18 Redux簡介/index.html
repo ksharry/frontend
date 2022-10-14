@@ -1,0 +1,53 @@
+
+<html>
+    <!-- 
+    ## 介紹
+    1. 使用者操作有狀態變化觸發介面變化。
+    2. 把狀態統一管理，小專案不需要
+    -->
+<head>
+    <meta charset= "utf-8" />
+    <title>Javascript</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script src="https://unpkg.com/redux@4.0.5/dist/redux.min.js"></script>
+    <style type=""text/css">
+    </style>
+    <script type="text/babel">
+        let store;
+        let reducer=function(state/*目前的狀態物件*/, action /*接收到的行動物件*/){
+            // 無論狀態是否改變，都一定要回傳，新狀態會完全取代舊狀態。
+            switch(action.type){
+                case "UPDATE_SWITCH":
+                    return {on:!state.on}
+                default:
+                    return state;
+            }
+        };
+        let handler=function(){
+            //一旦狀態改變，就會被呼叫
+            let state=store.getState();
+            document.body.innerHTML=state.on?"on":"off";
+        };
+		window.addEventListener("load", ()=>{
+            // 建立狀態儲存空間，必須準備好狀態處理函式(Reducer)，以及初始的狀態物件。
+			store=Redux.createStore(reducer, {on:false});
+            //註冊回應狀態改變的函示
+            store.subscribe(handler)
+            let unsubscribe=store.subscribe(handler);
+            unsubscribe(); //取消註冊
+            document.addEventListener("click", ()=>{
+                // 建立行動物件，並且透過dispatch派送給狀態處理函式(Reducer)
+                // 行動物件一定要有TYPE，代表行動是什麼
+                store.dispatch({
+                    type:"UPDATE_SWITCH"
+                });
+            });
+		});
+    </script>
+</head>
+<body>
+    off
+</body>
+</html>
